@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cloudify</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="cloud.png" type="image/png" />
+  </head>
+  <body>
+    <div class="content">
+      <nav>
+        <div class="nav-left">
+          <button class="hamburger-btn" onclick="toggleSidebar()">
+            &#9776;
+          </button>
+          <h1 class="title font">Cloudify</h1>
+          <img src="cloud2.png" alt="" height="60" class="cloud" />
+        </div>
+        <p class="username">
+          <img src="user.png" alt="" height="50" class="img" />
+          <%= user.username %>
+          <a href="/logout" class="logout">LOG OUT</a>
+        </p>
+      </nav>
+      <div class="sidebar" id="sidebar">
+        <div class="flex">
+          <h1>Folders</h1>
+          <a href="/folder/create" class="create-folder">create folder</a>
+        </div>
+        <div class="folders">
+          <% folders.forEach(folder => { %>
+          <div class="folder">
+            <a href="/folder/with/<%= folder.id %>" class="a">
+              <img src="folder1.png" alt="" height="50" /><%= folder.name %></a
+            >
+            <form action="/folder/with/<%= folder.id %>/delete" method="post">
+              <button type="submit" class="deleteBtn">
+                <img src="bin.png" alt="" height="50" />
+              </button>
+            </form>
+          </div>
+          <%})%>
+        </div>
+        <div class="overlay" id="overlay" onclick="closeSidebar()">X</div>
+      </div>
+      <div class="files"><%- include('allFiles') %></div>
+    </div>
+
+    <script>
+      function toggleSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("overlay");
+        sidebar.classList.toggle("active");
+        overlay.classList.toggle("active");
+      }
+      function closeSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("overlay");
+        sidebar.classList.remove("active");
+        overlay.classList.remove("active");
+      }
+    </script>
+  </body>
+</html>

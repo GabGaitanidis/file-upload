@@ -1,0 +1,473 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins";
+}
+body {
+  background-color: aliceblue;
+}
+.container {
+  height: 97svh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  width: 100%;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  gap: 13px;
+  text-align: center;
+  border: 1px solid skyblue;
+  border-radius: 10px;
+  width: 50%;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+}
+.input {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 6px;
+}
+
+label {
+  font-size: 20px;
+  margin-left: 5px;
+}
+.input input {
+  padding: 2px;
+  font-size: 21px;
+  border: none;
+  background-color: transparent;
+  outline: 2px solid skyblue;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+.btn {
+  padding: 10px;
+  color: white;
+  border-radius: 5px;
+  background-color: skyblue;
+  border: 2px solid skyblue;
+  font-size: 20px;
+  transition: 0.2s all;
+  cursor: pointer;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  align-items: center;
+  grid-column: 1/ 3;
+  color: rgb(37, 119, 152);
+  border-bottom: 2px solid rgb(94, 147, 201);
+}
+.det {
+  display: flex;
+  justify-content: space-between;
+}
+.content {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: auto;
+}
+
+.folders {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.flex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.a {
+  display: flex;
+  gap: 5px;
+}
+.folder {
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: black;
+  border-radius: 16px;
+  background-color: rgb(173, 224, 244);
+  color: white;
+}
+.font {
+  font-size: 30px;
+}
+.deleteBtn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.folder a {
+  display: flex;
+  align-items: center;
+  color: black;
+}
+a {
+  text-decoration: none;
+}
+.create-folder {
+  text-decoration: none;
+  color: white;
+  background-color: rgb(34, 104, 132);
+  padding: 4px 10px;
+  border-radius: 5px;
+}
+.username {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.files-h1 {
+  text-align: center;
+}
+.file-container {
+  display: grid;
+  overflow-y: scroll;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 13px;
+  max-height: 600px;
+}
+.file {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+.download-btn {
+  text-decoration: none;
+  color: white;
+  background-color: skyblue;
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+.delete-btn {
+  color: white;
+  background-color: rgb(234, 115, 115);
+  border-radius: 10px;
+  padding: 10px 20px;
+  border: none;
+}
+.file-container::-webkit-scrollbar {
+  width: 12px;
+}
+
+.file-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.file-container::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+  border: 3px solid #f1f1f1;
+}
+
+.file-container::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+.sidebar::-webkit-scrollbar {
+  width: 12px;
+  transition: 0.2s all;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  transition: 0.2s all;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: rgb(37, 119, 152);
+  border-radius: 10px;
+  border: 3px solid #f1f1f1;
+  transition: 0.2s all;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background-color: skyblue;
+}
+.logout {
+  text-decoration: none;
+  color: skyblue;
+  transition: 0.2s all;
+}
+.logout:hover {
+  color: red;
+}
+.hamburger-btn {
+  font-size: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: none;
+  color: rgb(37, 119, 152);
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.sidebar {
+  max-height: 651px;
+  height: 651px;
+  border-right: 2px solid rgb(94, 147, 201);
+  overflow-y: scroll;
+  padding: 10px;
+  transition: transform 0.3s ease;
+  max-width: 300px;
+}
+
+.sidebar.active {
+  transform: translateX(0);
+}
+.container-folder-form {
+  height: 99svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container-folder-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.container-folder-form form button {
+  font-size: 17px;
+  padding: 0.5em 2em;
+  border: transparent;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  background: rgb(94, 147, 201);
+  color: white;
+  border-radius: 4px;
+}
+.container-folder-form form input {
+  font-size: 24px;
+  border: 2px solid gray;
+  border-radius: 5px;
+}
+.create-folder-h1 {
+  color: rgb(113, 153, 169);
+  text-align: center;
+}
+.file-input {
+  width: 100%;
+  height: 40px;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+.custom-file-label {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  width: 10%;
+  padding: 10px;
+  background-color: skyblue;
+  color: white;
+  border: 2px solid skyblue;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.custom-file-label:hover {
+  background-color: deepskyblue;
+}
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 300px;
+  margin: 0 auto;
+}
+.center {
+  text-align: center;
+  color: rgb(90, 140, 160);
+}
+.file-input {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+.folder-container {
+  display: flex;
+  height: 90svh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+  overflow-y: scroll;
+}
+.custom-file-label {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  padding: 10px;
+  background-color: skyblue;
+  color: white;
+  border: 2px solid skyblue;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.custom-file-label:hover {
+  background-color: deepskyblue;
+}
+
+.submit-btn {
+  background: rgb(94, 147, 201);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: rgb(71, 111, 152);
+}
+
+.images-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 30px;
+  width: 100%;
+  max-width: 600px;
+  border: 2px solid gray;
+  margin: 20px auto;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.uploaded-image {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.images-container h1 {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: gray;
+  font-size: 18px;
+}
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: white;
+    z-index: 1000;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  .hamburger-btn {
+    display: block;
+  }
+
+  .files {
+    grid-column: 1 / -1;
+  }
+
+  .nav-left {
+    width: 100%;
+  }
+  .sidebar.active {
+    transform: translateX(0);
+  }
+}
+.overlay {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 90%;
+  font-size: 23px;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  transition: opacity 0.3s ease;
+}
+
+.overlay.active {
+  display: block;
+  opacity: 1;
+}
+.det a {
+  color: rgb(40, 92, 113);
+}
+.title {
+  color: rgb(85, 142, 165);
+}
+@media (max-width: 568px) {
+  .form {
+    width: 90%;
+  }
+  .create-folder {
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 900px) {
+  .flex {
+    flex-direction: column;
+  }
+  .cloud {
+    display: none;
+  }
+}
+@media (min-width: 1150px) {
+  .form {
+    width: 40%;
+  }
+}
+@media (max-width: 390px) {
+  .det {
+    flex-direction: column;
+  }
+  nav .title {
+    margin-right: 10px;
+  }
+  .username img {
+    display: none;
+  }
+  .username {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .username a {
+    margin-left: 17px;
+  }
+}

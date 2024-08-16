@@ -1,0 +1,15 @@
+<h1 class="center">Files</h1>
+
+<div class="file-container">
+  <% folders.forEach(folder => { %> <% if (folder.files.length > 0) { %> <%
+  folder.files.forEach(file => { %>
+  <div class="file">
+    <img src="<%= file.url %>" alt="<%= file.name %>" height="100" />
+    <p><%= file.name %></p>
+    <form action="/files/<%= file.id %>" method="post">
+      <button type="submit" class="delete-btn">Delete</button>
+      <a href="<%= file.url %>" download class="download-btn">Download File</a>
+    </form>
+  </div>
+  <% }) }}) %>
+</div>

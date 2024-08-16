@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cloudify</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="cloud.png" type="image/png" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">Cloudify</h1>
+      <form action="/login" method="POST" class="form">
+        <h1 class="loginh1">Login</h1>
+
+        <div class="input">
+          <label for="username">Username</label>
+          <input
+            id="username"
+            name="username"
+            type="text"
+            minlength="2"
+            maxlength="10"
+          />
+        </div>
+        <div class="input">
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" />
+        </div>
+        <button class="btn">Log In</button>
+        <div class="det">
+          <p>
+            Check my
+            <a href="https://github.com/GabGaitanidis" target="_blank"
+              >github!</a
+            >
+          </p>
+          <p>Don't have an account? <a href="/sign-up">Sign up!</a></p>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

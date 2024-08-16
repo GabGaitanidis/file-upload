@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cloudify</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="folder-container">
+      <h1 class="center"><%= folder.name %></h1>
+      <form
+        action="/folder/with/<%= folder.id %>/i"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <input type="file" id="file" class="file-input" name="file" />
+        <label for="file" class="custom-file-label">Choose File</label>
+        <button type="submit">Submit</button>
+      </form>
+      <div class="images-container">
+        <% if (folders.length > 0) { %> <% folders.forEach(file => { %>
+        <div class="file">
+          <img src="<%= file.url %>" alt="<%= file.name %>" height="100" />
+          <p><%= file.name %></p>
+        </div>
+        <% }) %> <% } else { %>
+        <p>No files in this folder.</p>
+        <% } %>
+      </div>
+    </div>
+  </body>
+</html>
