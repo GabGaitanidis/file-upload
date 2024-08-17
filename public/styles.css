@@ -425,6 +425,9 @@ a {
   display: block;
   opacity: 1;
 }
+.container-folder-form {
+  padding: 20px;
+}
 .det a {
   color: rgb(40, 92, 113);
 }
