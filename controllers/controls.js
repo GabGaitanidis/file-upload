@@ -1,7 +1,5 @@
 const db = require("../db");
 const bcrypt = require("bcryptjs");
-const multer = require("multer");
-const { createClient } = require("@supabase/supabase-js");
 const cloudinary = require("cloudinary").v2;
 require("dotenv").config();
 
@@ -10,7 +8,12 @@ cloudinary.config({
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
-
+async function renderIndex(req, res) {
+  const userId = req.user.id;
+  const folders = await db.getFolders(userId);
+  const files = await db.getFolderFiles(parseInt(userId));
+  res.render("index", { user: req.user, folders: folders || [], files });
+}
 async function createUser(req, res) {
   const username = req.body.username;
   const hashedPassword = await bcrypt.hash(req.body.password, 10);
@@ -125,6 +128,7 @@ async function deleteFile(req, res) {
 
 module.exports = {
   createUser,
+  renderIndex,
   createFolder,
   displayFolder,
   deleteFolder,

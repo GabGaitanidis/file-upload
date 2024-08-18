@@ -9,12 +9,7 @@ const router = Router();
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-router.get("/", isAuth, async (req, res) => {
-  const userId = req.user.id;
-  const folders = await db.getFolders(userId);
-  const files = await db.getFolderFiles(parseInt(userId));
-  res.render("index", { user: req.user, folders: folders || [], files });
-});
+router.get("/", isAuth, controls.renderIndex);
 
 router.post(
   "/login",
@@ -55,7 +50,7 @@ router.post("/folder/create", isAuth, controls.createFolder);
 
 router.get("/folder/with/:id", isAuth, controls.displayFolder);
 router.post(
-  "/folder/with/:id/i",
+  "/folder/with/:id",
   isAuth,
   upload.single("file"),
   controls.uploadFile
